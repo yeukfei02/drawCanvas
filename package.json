@@ -1,0 +1,11 @@
+{
+  "name": "drawCanvas",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/yeukfei02/drawCanvas.git",
+  "author": "Donald Wu <yeukfei02@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

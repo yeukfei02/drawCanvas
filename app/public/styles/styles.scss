@@ -1,0 +1,60 @@
+
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:500);
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+@mixin colorPickerStyle($background-color) {
+	width: 1em;
+	height: 1em;
+	padding: 1em;
+	margin: 0.5em auto;
+	cursor: pointer;
+	border: 0.1em black solid;
+	background-color: $background-color;
+}
+
+#drawCanvas {
+	margin: 2em auto;
+	text-align: center;
+
+
+	#canvas, #canvas2, #canvas3 {
+	  	@extend .canvas-style;
+	}
+	
+
+	#canvas2, #canvas3 {
+		display: none;
+		cursor: crosshair;
+	}
+
+	.canvas-style {
+		border: 0.1em black solid;
+		max-width: 100%;
+		height: auto;
+
+	}
+
+	#slider {
+		width: 15em;
+		margin: 0.5em auto;
+	}
+
+
+	#colorPicker {
+		@include colorPickerStyle(black);
+		
+	}
+
+
+	#bgColorPicker {
+		@include colorPickerStyle(white);
+
+	}
+
+	
+
+}

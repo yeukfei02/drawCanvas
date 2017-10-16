@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <title>HTML5 canvas</title>
+    
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" href="public/styles/styles.css">
+  </head>
+
+  <body>
+    <div id="drawCanvas">
+        <canvas id="canvas" width="500" height="300"></canvas>
+        <div>Press WASD to move circle. Hold mouse to draw. Double click to add item.</div>
+        <div id="slider"></div>
+        <div>
+            Choose pencil color: 
+            <div id="colorPicker"></div>
+            <canvas id="canvas2"></canvas>
+        </div>
+
+        <div>
+            Choose background color: 
+            <div id="bgColorPicker"></div>
+            <canvas id="canvas3"></canvas>
+        </div>
+        
+        
+        <input id="square" type="checkbox"> Add square
+        <input id="circle" type="checkbox"> Add circle
+        <input id="flag" type="checkbox"> Add flag
+        <input id="clear" type="button" value="Clear">
+        <div id="mousePos"></div>
+    </div>
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="public/scripts/function.js"></script>
+  </body>
+</html>
+
