@@ -13,7 +13,7 @@ HTML5 canvas
 
 ```$ node server.js```
 
-Open web in localhost:3000
+Open web in http://localhost:3000/
 
 #### Option 2
 ```$ cd app```
