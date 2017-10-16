@@ -8,14 +8,16 @@ HTML5 canvas
 
 ### Testing and run:
 
-# Option 1
+#### Option 1
 ```$ yarn```
+
 ```$ node server.js```
 
 Open web in localhost:3000
 
-# Option 2
+#### Option 2
 ```$ cd app```
+
 ```$ bower install ```
 
 Open index.html in browser
