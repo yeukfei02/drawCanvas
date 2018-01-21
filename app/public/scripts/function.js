@@ -1,8 +1,6 @@
 'use strict';
 
-
 $(document).ready(function () {
-
 	// canvas
 	function Canvas () {
 
@@ -16,9 +14,9 @@ $(document).ready(function () {
 
 	Canvas.prototype.getMouse = function() {
 		$('#canvas').mousemove(function (e) {
-			var canvas = document.querySelector('#canvas');
-			var mouseX = e.clientX - canvas.offsetLeft;
-			var mouseY = e.clientY - canvas.offsetTop;
+			let canvas = document.querySelector('#canvas');
+			let mouseX = e.clientX - canvas.offsetLeft;
+			let mouseY = e.clientY - canvas.offsetTop;
 			$('#mousePos').html(mouseX + ' ' + mouseY);
 		});
 	};
@@ -56,10 +54,10 @@ $(document).ready(function () {
 		});
 
 
-		var canvas2 = document.querySelector('#canvas2');
-		var context2 = canvas2.getContext('2d');
+		let canvas2 = document.querySelector('#canvas2');
+		let context2 = canvas2.getContext('2d');
 
-		var image2 = new Image();
+		let image2 = new Image();
 
 		image2.onload = function () {
 			canvas2.width = image2.width;
@@ -72,19 +70,19 @@ $(document).ready(function () {
 		$('#canvas2').mousedown(function () {
 			$(this).hide();
 		}).mousemove(function (e) {
-			var rect = canvas2.getBoundingClientRect();
-			var mouseX = parseInt(e.clientX - rect.left);
-			var mouseY = parseInt(e.clientY - rect.top);
-        	var imageData = context2.getImageData(mouseX, mouseY, 1, 1).data;
+			let rect = canvas2.getBoundingClientRect();
+			let mouseX = parseInt(e.clientX - rect.left);
+			let mouseY = parseInt(e.clientY - rect.top);
+        	let imageData = context2.getImageData(mouseX, mouseY, 1, 1).data;
 
         	console.log(mouseX + ' ' + mouseY);
         	console.log(imageData);
 
-        	var red = imageData[0];
-        	var green = imageData[1];
-        	var blue = imageData[2];
-        	var alpha = imageData[3];
-        	var color = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')';
+        	let red = imageData[0];
+        	let green = imageData[1];
+        	let blue = imageData[2]
+        	let alpha = imageData[3];
+        	let color = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')';
         	$('#colorPicker').css('background-color', color);
 		});
 
@@ -95,11 +93,10 @@ $(document).ready(function () {
 			$('#canvas3').toggle();
 		});
 
+		let canvas3 = document.querySelector('#canvas3');
+		let context3 = canvas3.getContext('2d');
 
-		var canvas3 = document.querySelector('#canvas3');
-		var context3 = canvas3.getContext('2d');
-
-		var image3 = new Image();
+		let image3 = new Image();
 
 		image3.onload = function () {
 			canvas3.width = image3.width;
@@ -112,19 +109,19 @@ $(document).ready(function () {
 		$('#canvas3').mousedown(function () {
 			$(this).hide();
 		}).mousemove(function (e) {
-			var rect = canvas3.getBoundingClientRect();
-			var mouseX = parseInt(e.clientX - rect.left);
-			var mouseY = parseInt(e.clientY - rect.top);
-        	var imageData = context3.getImageData(mouseX, mouseY, 1, 1).data;
+			let rect = canvas3.getBoundingClientRect();
+			let mouseX = parseInt(e.clientX - rect.left);
+			let mouseY = parseInt(e.clientY - rect.top);
+        	let imageData = context3.getImageData(mouseX, mouseY, 1, 1).data;
 
         	console.log(mouseX + ' ' + mouseY);
         	console.log(imageData);
 
-        	var red = imageData[0];
-        	var green = imageData[1];
-        	var blue = imageData[2];
-        	var alpha = imageData[3];
-        	var color = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')';
+        	let red = imageData[0];
+        	let green = imageData[1];
+        	let blue = imageData[2];
+        	let alpha = imageData[3];
+        	let color = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')';
         	$('#bgColorPicker, #canvas').css('background-color', color);
 		});
 
@@ -137,8 +134,8 @@ $(document).ready(function () {
 	}
 
 	Shape.prototype.drawText = function() {
-		var canvas = document.querySelector('#canvas');
-		var context = canvas.getContext('2d');
+		let canvas = document.querySelector('#canvas');
+		let context = canvas.getContext('2d');
 
 		context.beginPath();
 		context.fillStyle = 'blue';
@@ -155,8 +152,8 @@ $(document).ready(function () {
 	};
 
 	Shape.prototype.drawLine = function() {
-		var canvas = document.querySelector('#canvas');
-		var context = canvas.getContext('2d');
+		let canvas = document.querySelector('#canvas');
+		let context = canvas.getContext('2d');
 
 		context.beginPath();
 		context.moveTo(10, 10);
@@ -168,8 +165,8 @@ $(document).ready(function () {
 	};
 
 	Shape.prototype.drawCircle = function(x, y, radius, startPoint, endPoint, fillStyle, strokeStyle) {
-		var canvas = document.querySelector('#canvas');
-		var context = canvas.getContext('2d');
+		let canvas = document.querySelector('#canvas');
+		let context = canvas.getContext('2d');
 
         context.beginPath();
         context.arc(x, y, radius, startPoint, endPoint);
@@ -182,8 +179,8 @@ $(document).ready(function () {
 	};
 
 	Shape.prototype.drawRect = function(x, y, width, height, fillStyle, strokeStyle) {
-		var canvas = document.querySelector('#canvas');
-		var context = canvas.getContext('2d');
+		let canvas = document.querySelector('#canvas');
+		let context = canvas.getContext('2d');
 
         context.beginPath();
         context.rect(x, y, width, height);
@@ -199,12 +196,12 @@ $(document).ready(function () {
 
 	// keyboardEvent
 	function KeyboardEvent() {
-		var canvas = document.querySelector('#canvas');
-		var context = canvas.getContext('2d');
+		let canvas = document.querySelector('#canvas');
+		let context = canvas.getContext('2d');
 
         context.beginPath();
 
-        var circle = {
+        let circle = {
         	x: 90,
         	y: 200,
         	radius: 10,
@@ -301,21 +298,20 @@ $(document).ready(function () {
 
 	// mouseEvent
 	function MouseEvent() {
-		
-		var canvas = document.querySelector('#canvas');
-		var context = canvas.getContext('2d');
+		let canvas = document.querySelector('#canvas');
+		let context = canvas.getContext('2d');
 
-        var lastMouse = {
+        let lastMouse = {
     		x: 0,
     		y: 0
     	};
 
-    	var mouse = {
+    	let mouse = {
     		x: 0,
     		y: 0
     	};
 
-        var dragging = false;
+        let dragging = false;
 
         function draw() {
 
@@ -366,13 +362,13 @@ $(document).ready(function () {
 
 				if ($(this).attr('checked', true)) {
 					$('#canvas').dblclick(function (e) {
-						var canvas = document.querySelector('#canvas');
-						var mouseX = e.clientX - canvas.offsetLeft;
-						var mouseY = e.clientY - canvas.offsetTop;
+						let canvas = document.querySelector('#canvas');
+						let mouseX = e.clientX - canvas.offsetLeft;
+						let mouseY = e.clientY - canvas.offsetTop;
 
 						console.log(mouseX + ' ' + mouseY);
 
-						var shape = new Shape();
+						let shape = new Shape();
 						shape.drawRect(mouseX, mouseY, 20, 20, 'rgba(144, 238, 144, 0.5)', 'red');
 						
 
@@ -399,13 +395,13 @@ $(document).ready(function () {
 
 				if ($(this).attr('checked', true)) {
 					$('#canvas').dblclick(function (e) {
-						var canvas = document.querySelector('#canvas');
-						var mouseX = e.clientX - canvas.offsetLeft;
-						var mouseY = e.clientY - canvas.offsetTop;
+						let canvas = document.querySelector('#canvas');
+						let mouseX = e.clientX - canvas.offsetLeft;
+						let mouseY = e.clientY - canvas.offsetTop;
 
 						console.log(mouseX + ' ' + mouseY);
 
-						var shape = new Shape();
+						let shape = new Shape();
 						shape.drawCircle(mouseX, mouseY, 10, 0, 2 * Math.PI, 'rgba(241, 119, 193, 0.7)', 'limegreen');
 						
 
@@ -432,17 +428,17 @@ $(document).ready(function () {
 
 				if ($(this).attr('checked', true)) {
 					$('#canvas').dblclick(function (e) {
-						var canvas = document.querySelector('#canvas');
-						var context = canvas.getContext('2d');
+						let canvas = document.querySelector('#canvas');
+						let context = canvas.getContext('2d');
 
-						var mouseX = e.clientX - canvas.offsetLeft;
-						var mouseY = e.clientY - canvas.offsetTop;
+						let mouseX = e.clientX - canvas.offsetLeft;
+						let mouseY = e.clientY - canvas.offsetTop;
 
 						console.log(mouseX + ' ' + mouseY);
 
 
 
-						var image = new Image();
+						let image = new Image();
 
 					    image.onload = function() {
 					        context.drawImage(image, mouseX, mouseY);
@@ -471,8 +467,8 @@ $(document).ready(function () {
 
 	ButtonEvent.prototype.clearButton = function() {
 		$('#clear').click(function () {
-			var canvas = document.querySelector('#canvas');
-			var context = canvas.getContext('2d');
+			let canvas = document.querySelector('#canvas');
+			let context = canvas.getContext('2d');
 
 	        context.beginPath();
 	       	context.clearRect(0, 0, 500, 300);
@@ -488,60 +484,60 @@ $(document).ready(function () {
 
 
 	// start to initial drawboard ------------------------------------------
-	var canvas = new Canvas();
+	let canvas = new Canvas();
 	canvas.changeCursor();
 	canvas.getMouse();
 
-	var slider = new Slider(5);
+	let slider = new Slider(5);
 	slider.changeSlider();
 
-	var colorPicker = new ColorPicker();
+	let colorPicker = new ColorPicker();
 	colorPicker.selectPencilColor();
 	colorPicker.selectBackgroundColor();
 
 
-	var shape = new Shape();
+	let shape = new Shape();
 	shape.drawText();
 	shape.drawLine();
 	shape.drawCircle(400, 250, 15, 0, 2 * Math.PI, 'rgba(255, 102, 102, 0.5)', 'black');
 
 
-	var x1 = Math.floor(Math.random() * 450);
-	var x2 = Math.floor(Math.random() * 400);
-	var y1 = Math.floor(Math.random() * 250);
-	var y2 = Math.floor(Math.random() * 200);
+	let x1 = Math.floor(Math.random() * 450);
+	let x2 = Math.floor(Math.random() * 400);
+	let y1 = Math.floor(Math.random() * 250);
+	let y2 = Math.floor(Math.random() * 200);
 
-	var width1 = Math.floor(Math.random() * 80) + 10;
-	var width2 = Math.floor(Math.random() * 100) + 10;
-	var height1 = Math.floor(Math.random() * 100) + 10;
-	var height2 = Math.floor(Math.random() * 150) + 10;
+	let width1 = Math.floor(Math.random() * 80) + 10;
+	let width2 = Math.floor(Math.random() * 100) + 10;
+	let height1 = Math.floor(Math.random() * 100) + 10;
+	let height2 = Math.floor(Math.random() * 150) + 10;
 
-	var redColor1 = Math.floor(Math.random() * 255);
-	var redColor2 = Math.floor(Math.random() * 200);
-	var greenColor1 = Math.floor(Math.random() * 255);
-	var greenColor2 = Math.floor(Math.random() * 200);
-	var blueColor1 = Math.floor(Math.random() * 255);
-	var blueColor2 =  Math.floor(Math.random() * 200);
-	var opacity1 = Math.random() * (1.0 - 0.2) + 0.1;
-	var opacity2 = Math.random() * (0.9 - 0.3) + 0.1;
+	let redColor1 = Math.floor(Math.random() * 255);
+	let redColor2 = Math.floor(Math.random() * 200);
+	let greenColor1 = Math.floor(Math.random() * 255);
+	let greenColor2 = Math.floor(Math.random() * 200);
+	let blueColor1 = Math.floor(Math.random() * 255);
+	let blueColor2 =  Math.floor(Math.random() * 200);
+	let opacity1 = Math.random() * (1.0 - 0.2) + 0.1;
+	let opacity2 = Math.random() * (0.9 - 0.3) + 0.1;
 
-	var randomColor1 = 'rgba(' + redColor1 + ', ' + greenColor1 + ', ' + blueColor1 + ', ' + opacity1.toFixed(1) + ')';
-	var randomColor2 = 'rgba(' + redColor2 + ', ' + greenColor2 + ', ' + blueColor2 + ', ' + opacity2.toFixed(1) + ')';
+	let randomColor1 = 'rgba(' + redColor1 + ', ' + greenColor1 + ', ' + blueColor1 + ', ' + opacity1.toFixed(1) + ')';
+	let randomColor2 = 'rgba(' + redColor2 + ', ' + greenColor2 + ', ' + blueColor2 + ', ' + opacity2.toFixed(1) + ')';
 
 	shape.drawRect(x1, y1, width1, height1, randomColor1, 'red');
 	shape.drawRect(x2, y2, width2, height2, randomColor2, 'blue');
 	
 
 
-	var keyboardEvent = new KeyboardEvent();
+	let keyboardEvent = new KeyboardEvent();
 
 
-	var mouseEvent = new MouseEvent();
+	let mouseEvent = new MouseEvent();
 	mouseEvent.addSquare();
 	mouseEvent.addCircle();
 	mouseEvent.addFlag();
 
-	var buttonEvent = new ButtonEvent();
+	let buttonEvent = new ButtonEvent();
 	buttonEvent.clearButton();
 
 	// end to initial drawboard ------------------------------------------
