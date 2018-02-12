@@ -15,6 +15,7 @@ $ yarn
 ```
 $ cd app
 $ bower install
+$ cd ../
 $ node server.js
 ```
 
