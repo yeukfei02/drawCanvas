@@ -11,6 +11,8 @@ HTML5 canvas
 #### Option 1
 ```
 $ yarn
+```
+```
 $ cd app
 $ bower install
 $ node server.js
