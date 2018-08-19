@@ -6,6 +6,10 @@
   "author": "Donald Wu <yeukfei02@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "nodemon": "^1.18.3"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
   }
 }

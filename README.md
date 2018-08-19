@@ -16,7 +16,7 @@ $ yarn
 $ cd app
 $ bower install
 $ cd ../
-$ node server.js
+$ yarn start
 ```
 
 Open web in http://localhost:3000/
