@@ -1,23 +1,23 @@
 'use strict';
 
-$(document).ready(function () {
+$(document).ready(function() {
 	// canvas
-	function Canvas () {
+	function Canvas() {
 
 	}
 
 	Canvas.prototype.changeCursor = function() {
-		$('#canvas').mousemove(function () {
+		$('#canvas').mousemove(function() {
 			$(this).css('cursor', 'crosshair');
 		});
 	};
 
 	Canvas.prototype.getMouse = function() {
-		$('#canvas').mousemove(function (e) {
+		$('#canvas').mousemove(function(e) {
 			let canvas = document.querySelector('#canvas');
 			let mouseX = e.clientX - canvas.offsetLeft;
 			let mouseY = e.clientY - canvas.offsetTop;
-			$('#mousePos').html(mouseX + ' ' + mouseY);
+			$('#mousePos').html(`x: ${mouseX} y: ${mouseY}`);
 		});
 	};
 
@@ -32,9 +32,9 @@ $(document).ready(function () {
 			max: 20,
 			value: this.value,
 			change: function(event, ui) {
-	       this.value = ui.value;
-	       console.log(this.value);
-	    }
+				this.value = ui.value;
+				console.log(this.value);
+			}
 		});
 	};
 
@@ -44,7 +44,7 @@ $(document).ready(function () {
 	}
 
 	ColorPicker.prototype.selectPencilColor = function() {
-		$('#colorPicker').click(function () {
+		$('#colorPicker').click(function() {
 			$('#canvas2').toggle();
 		});
 
@@ -52,36 +52,36 @@ $(document).ready(function () {
 		let context2 = canvas2.getContext('2d');
 
 		let image2 = new Image();
-		image2.onload = function () {
+		image2.onload = function() {
 			canvas2.width = image2.width;
 			canvas2.height = image2.height;
 			context2.drawImage(image2, 0, 0, canvas2.width, canvas2.height);
 		};
 		image2.src = '../public/images/colorPicker.png';
 
-		$('#canvas2').mousedown(function () {
+		$('#canvas2').mousedown(function() {
 			$(this).hide();
-		}).mousemove(function (e) {
+		}).mousemove(function(e) {
 			let rect = canvas2.getBoundingClientRect();
 			let mouseX = parseInt(e.clientX - rect.left);
 			let mouseY = parseInt(e.clientY - rect.top);
-    	let imageData = context2.getImageData(mouseX, mouseY, 1, 1).data;
+			let imageData = context2.getImageData(mouseX, mouseY, 1, 1).data;
 
-    	console.log(mouseX + ' ' + mouseY);
-    	console.log(imageData);
+			console.log(mouseX + ' ' + mouseY);
+			console.log(imageData);
 
-    	let red = imageData[0];
-    	let green = imageData[1];
-    	let blue = imageData[2]
-    	let alpha = imageData[3];
-    	let color = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')';
-    	$('#colorPicker').css('background-color', color);
+			let red = imageData[0];
+			let green = imageData[1];
+			let blue = imageData[2]
+			let alpha = imageData[3];
+			let color = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')';
+			$('#colorPicker').css('background-color', color);
 		});
 
 	};
 
 	ColorPicker.prototype.selectBackgroundColor = function() {
-		$('#bgColorPicker').click(function () {
+		$('#bgColorPicker').click(function() {
 			$('#canvas3').toggle();
 		});
 
@@ -89,30 +89,30 @@ $(document).ready(function () {
 		let context3 = canvas3.getContext('2d');
 
 		let image3 = new Image();
-		image3.onload = function () {
+		image3.onload = function() {
 			canvas3.width = image3.width;
 			canvas3.height = image3.height;
 			context3.drawImage(image3, 0, 0, canvas3.width, canvas3.height);
 		};
 		image3.src = '../public/images/colorPicker.png';
 
-		$('#canvas3').mousedown(function () {
+		$('#canvas3').mousedown(function() {
 			$(this).hide();
-		}).mousemove(function (e) {
+		}).mousemove(function(e) {
 			let rect = canvas3.getBoundingClientRect();
 			let mouseX = parseInt(e.clientX - rect.left);
 			let mouseY = parseInt(e.clientY - rect.top);
-    	let imageData = context3.getImageData(mouseX, mouseY, 1, 1).data;
+			let imageData = context3.getImageData(mouseX, mouseY, 1, 1).data;
 
-    	console.log(mouseX + ' ' + mouseY);
-    	console.log(imageData);
+			console.log(mouseX + ' ' + mouseY);
+			console.log(imageData);
 
-    	let red = imageData[0];
-    	let green = imageData[1];
-    	let blue = imageData[2];
-    	let alpha = imageData[3];
-    	let color = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')';
-    	$('#bgColorPicker, #canvas').css('background-color', color);
+			let red = imageData[0];
+			let green = imageData[1];
+			let blue = imageData[2];
+			let alpha = imageData[3];
+			let color = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')';
+			$('#bgColorPicker, #canvas').css('background-color', color);
 		});
 	};
 
@@ -156,28 +156,28 @@ $(document).ready(function () {
 		let canvas = document.querySelector('#canvas');
 		let context = canvas.getContext('2d');
 
-    context.beginPath();
-    context.arc(x, y, radius, startPoint, endPoint);
-    context.fillStyle = fillStyle;
-    context.fill();
-    context.lineWidth = 1;
-    context.strokeStyle = strokeStyle;
-    context.stroke();
-    context.closePath();
+		context.beginPath();
+		context.arc(x, y, radius, startPoint, endPoint);
+		context.fillStyle = fillStyle;
+		context.fill();
+		context.lineWidth = 1;
+		context.strokeStyle = strokeStyle;
+		context.stroke();
+		context.closePath();
 	};
 
 	Shape.prototype.drawRect = function(x, y, width, height, fillStyle, strokeStyle) {
 		let canvas = document.querySelector('#canvas');
 		let context = canvas.getContext('2d');
 
-    context.beginPath();
-    context.rect(x, y, width, height);
-    context.fillStyle = fillStyle;
-    context.fill();
-    context.lineWidth = 1;
-    context.strokeStyle = strokeStyle;
-    context.stroke();
-    context.closePath();
+		context.beginPath();
+		context.rect(x, y, width, height);
+		context.fillStyle = fillStyle;
+		context.fill();
+		context.lineWidth = 1;
+		context.strokeStyle = strokeStyle;
+		context.stroke();
+		context.closePath();
 	};
 
 	// keyboardEvent
@@ -185,27 +185,27 @@ $(document).ready(function () {
 		let canvas = document.querySelector('#canvas');
 		let context = canvas.getContext('2d');
 
-    context.beginPath();
+		context.beginPath();
 
-    let circle = {
-    	x: 90,
-    	y: 200,
-    	radius: 10,
-    	startPoint: 0,
-    	endPoint: 2 * Math.PI,
-    	fillStyle: 'rgba(204, 255, 0, 0.7)',
-    	strokeStyle: 'black'
-    };
+		let circle = {
+			x: 90,
+			y: 200,
+			radius: 10,
+			startPoint: 0,
+			endPoint: 2 * Math.PI,
+			fillStyle: 'rgba(204, 255, 0, 0.7)',
+			strokeStyle: 'black'
+		};
 
-    context.arc(circle.x, circle.y, circle.radius, circle.startPoint, circle.endPoint);
-    context.fillStyle = circle.fillStyle;
-    context.fill();
-    context.lineWidth = 1;
-    context.strokeStyle = circle.strokeStyle;
-    context.stroke();
-    context.closePath();
+		context.arc(circle.x, circle.y, circle.radius, circle.startPoint, circle.endPoint);
+		context.fillStyle = circle.fillStyle;
+		context.fill();
+		context.lineWidth = 1;
+		context.strokeStyle = circle.strokeStyle;
+		context.stroke();
+		context.closePath();
 
-		$('body').keydown(function (e) {
+		$('body').keydown(function(e) {
 			switch (e.keyCode) {
 				case 87:
 					console.log('up');
@@ -217,11 +217,11 @@ $(document).ready(function () {
 					console.log(circle.y);
 
 					context.arc(circle.x, circle.y, circle.radius, circle.startPoint, circle.endPoint);
-	        context.fillStyle = circle.fillStyle;
-	        context.fill();
-	        context.lineWidth = 1;
-	        context.strokeStyle = circle.strokeStyle;
-	        context.stroke();
+					context.fillStyle = circle.fillStyle;
+					context.fill();
+					context.lineWidth = 1;
+					context.strokeStyle = circle.strokeStyle;
+					context.stroke();
 					context.closePath();
 					break;
 				case 83:
@@ -234,11 +234,11 @@ $(document).ready(function () {
 					console.log(circle.y);
 
 					context.arc(circle.x, circle.y, circle.radius, circle.startPoint, circle.endPoint);
-	        context.fillStyle = circle.fillStyle;
-	        context.fill();
-	        context.lineWidth = 1;
-	        context.strokeStyle = circle.strokeStyle;
-	        context.stroke();
+					context.fillStyle = circle.fillStyle;
+					context.fill();
+					context.lineWidth = 1;
+					context.strokeStyle = circle.strokeStyle;
+					context.stroke();
 					context.closePath();
 					break;
 				case 65:
@@ -251,11 +251,11 @@ $(document).ready(function () {
 					console.log(circle.x);
 
 					context.arc(circle.x, circle.y, circle.radius, circle.startPoint, circle.endPoint);
-	        context.fillStyle = circle.fillStyle;
-	        context.fill();
-	        context.lineWidth = 1;
-	        context.strokeStyle = circle.strokeStyle;
-	        context.stroke();
+					context.fillStyle = circle.fillStyle;
+					context.fill();
+					context.lineWidth = 1;
+					context.strokeStyle = circle.strokeStyle;
+					context.stroke();
 					context.closePath();
 					break;
 				case 68:
@@ -268,11 +268,11 @@ $(document).ready(function () {
 					console.log(circle.x);
 
 					context.arc(circle.x, circle.y, circle.radius, circle.startPoint, circle.endPoint);
-	        context.fillStyle = circle.fillStyle;
-	        context.fill();
-	        context.lineWidth = 1;
-	        context.strokeStyle = circle.strokeStyle;
-	        context.stroke();
+					context.fillStyle = circle.fillStyle;
+					context.fill();
+					context.lineWidth = 1;
+					context.strokeStyle = circle.strokeStyle;
+					context.stroke();
 					context.closePath();
 					break;
 				default:
@@ -286,19 +286,19 @@ $(document).ready(function () {
 		let canvas = document.querySelector('#canvas');
 		let context = canvas.getContext('2d');
 
-    let lastMouse = {
-  		x: 0,
-  		y: 0
-  	};
+		let lastMouse = {
+			x: 0,
+			y: 0
+		};
 
-  	let mouse = {
-  		x: 0,
-  		y: 0
-  	};
+		let mouse = {
+			x: 0,
+			y: 0
+		};
 
-    let dragging = false;
+		let dragging = false;
 
-    function draw() {
+		function draw() {
 			context.beginPath();
 			context.moveTo(lastMouse.x, lastMouse.y);
 			context.lineTo(mouse.x, mouse.y);
@@ -307,13 +307,13 @@ $(document).ready(function () {
 			context.lineJoin = 'round';
 			context.strokeStyle = $('#colorPicker').css('background-color');
 			context.stroke();
-    }
+		}
 
-		$('#canvas').mousedown(function () {
+		$('#canvas').mousedown(function() {
 			dragging = true;
 		});
 
-		$('#canvas').mousemove(function (e) {
+		$('#canvas').mousemove(function(e) {
 			lastMouse.x = mouse.x;
 			lastMouse.y = mouse.y;
 
@@ -325,13 +325,13 @@ $(document).ready(function () {
 			}
 		});
 
-		$('#canvas').mouseup(function () {
+		$('#canvas').mouseup(function() {
 			dragging = false;
 		});
 	}
 
-	MouseEvent.prototype.addSquare = function () {
-		$('#square').click(function () {
+	MouseEvent.prototype.addSquare = function() {
+		$('#square').click(function() {
 			if ($(this).is(':checked')) {
 				$(this).attr('checked', 'checked');
 				$('#circle, #flag').attr('disabled', true);
@@ -339,7 +339,7 @@ $(document).ready(function () {
 				console.log('square checked');
 
 				if ($(this).attr('checked', true)) {
-					$('#canvas').dblclick(function (e) {
+					$('#canvas').dblclick(function(e) {
 						let canvas = document.querySelector('#canvas');
 						let mouseX = e.clientX - canvas.offsetLeft;
 						let mouseY = e.clientY - canvas.offsetTop;
@@ -360,7 +360,7 @@ $(document).ready(function () {
 	};
 
 	MouseEvent.prototype.addCircle = function() {
-		$('#circle').click(function () {
+		$('#circle').click(function() {
 			if ($(this).is(':checked')) {
 				$(this).attr('checked', 'checked');
 				$('#square, #flag').attr('disabled', true);
@@ -368,7 +368,7 @@ $(document).ready(function () {
 				console.log('circle checked');
 
 				if ($(this).attr('checked', true)) {
-					$('#canvas').dblclick(function (e) {
+					$('#canvas').dblclick(function(e) {
 						let canvas = document.querySelector('#canvas');
 						let mouseX = e.clientX - canvas.offsetLeft;
 						let mouseY = e.clientY - canvas.offsetTop;
@@ -389,7 +389,7 @@ $(document).ready(function () {
 	};
 
 	MouseEvent.prototype.addFlag = function() {
-		$('#flag').click(function () {
+		$('#flag').click(function() {
 			if ($(this).is(':checked')) {
 				$(this).attr('checked', 'checked');
 				$('#square, #circle').attr('disabled', true);
@@ -397,7 +397,7 @@ $(document).ready(function () {
 				console.log('flag checked');
 
 				if ($(this).attr('checked', true)) {
-					$('#canvas').dblclick(function (e) {
+					$('#canvas').dblclick(function(e) {
 						let canvas = document.querySelector('#canvas');
 						let context = canvas.getContext('2d');
 
@@ -407,10 +407,10 @@ $(document).ready(function () {
 						console.log(mouseX + ' ' + mouseY);
 
 						let image = new Image();
-				    image.onload = function() {
-				       context.drawImage(image, mouseX, mouseY);
-				    };
-				    image.src = '../public/images/flagIcon.png';
+						image.onload = function() {
+							context.drawImage(image, mouseX, mouseY);
+						};
+						image.src = '../public/images/flagIcon.png';
 					});
 				}
 			} else {
@@ -428,70 +428,70 @@ $(document).ready(function () {
 	}
 
 	ButtonEvent.prototype.clearButton = function() {
-		$('#clear').click(function () {
+		$('#clear').click(function() {
 			let canvas = document.querySelector('#canvas');
 			let context = canvas.getContext('2d');
 
-      context.beginPath();
-     	context.clearRect(0, 0, 500, 300);
-      context.closePath();
+			context.beginPath();
+			context.clearRect(0, 0, 500, 300);
+			context.closePath();
 
-      $('#square, #circle, #flag').removeAttr('checked disabled');
-      $('#canvas').css('background-color', 'white');
-      $('#canvas').unbind('dblclick');
+			$('#square, #circle, #flag').removeAttr('checked disabled');
+			$('#canvas').css('background-color', 'white');
+			$('#canvas').unbind('dblclick');
 		});
 	};
 
 	// start to initial drawboard ------------------------------------------
-	let canvas = new Canvas();
+	const canvas = new Canvas();
 	canvas.changeCursor();
 	canvas.getMouse();
 
-	let slider = new Slider(5);
+	const slider = new Slider(5);
 	slider.changeSlider();
 
-	let colorPicker = new ColorPicker();
+	const colorPicker = new ColorPicker();
 	colorPicker.selectPencilColor();
 	colorPicker.selectBackgroundColor();
 
-	let shape = new Shape();
+	const shape = new Shape();
 	shape.drawText();
 	shape.drawLine();
 	shape.drawCircle(400, 250, 15, 0, 2 * Math.PI, 'rgba(255, 102, 102, 0.5)', 'black');
 
-	let x1 = Math.floor(Math.random() * 450);
-	let x2 = Math.floor(Math.random() * 400);
-	let y1 = Math.floor(Math.random() * 250);
-	let y2 = Math.floor(Math.random() * 200);
+	const x1 = Math.floor(Math.random() * 450);
+	const x2 = Math.floor(Math.random() * 400);
+	const y1 = Math.floor(Math.random() * 250);
+	const y2 = Math.floor(Math.random() * 200);
 
-	let width1 = Math.floor(Math.random() * 80) + 10;
-	let width2 = Math.floor(Math.random() * 100) + 10;
-	let height1 = Math.floor(Math.random() * 100) + 10;
-	let height2 = Math.floor(Math.random() * 150) + 10;
+	const width1 = Math.floor(Math.random() * 80) + 10;
+	const width2 = Math.floor(Math.random() * 100) + 10;
+	const height1 = Math.floor(Math.random() * 100) + 10;
+	const height2 = Math.floor(Math.random() * 150) + 10;
 
-	let redColor1 = Math.floor(Math.random() * 255);
-	let redColor2 = Math.floor(Math.random() * 200);
-	let greenColor1 = Math.floor(Math.random() * 255);
-	let greenColor2 = Math.floor(Math.random() * 200);
-	let blueColor1 = Math.floor(Math.random() * 255);
-	let blueColor2 =  Math.floor(Math.random() * 200);
-	let opacity1 = Math.random() * (1.0 - 0.2) + 0.1;
-	let opacity2 = Math.random() * (0.9 - 0.3) + 0.1;
+	const redColor1 = Math.floor(Math.random() * 255);
+	const redColor2 = Math.floor(Math.random() * 200);
+	const greenColor1 = Math.floor(Math.random() * 255);
+	const greenColor2 = Math.floor(Math.random() * 200);
+	const blueColor1 = Math.floor(Math.random() * 255);
+	const blueColor2 = Math.floor(Math.random() * 200);
+	const opacity1 = Math.random() * (1.0 - 0.2) + 0.1;
+	const opacity2 = Math.random() * (0.9 - 0.3) + 0.1;
 
-	let randomColor1 = 'rgba(' + redColor1 + ', ' + greenColor1 + ', ' + blueColor1 + ', ' + opacity1.toFixed(1) + ')';
-	let randomColor2 = 'rgba(' + redColor2 + ', ' + greenColor2 + ', ' + blueColor2 + ', ' + opacity2.toFixed(1) + ')';
+	const randomColor1 = 'rgba(' + redColor1 + ', ' + greenColor1 + ', ' + blueColor1 + ', ' + opacity1.toFixed(1) + ')';
+	const randomColor2 = 'rgba(' + redColor2 + ', ' + greenColor2 + ', ' + blueColor2 + ', ' + opacity2.toFixed(1) + ')';
 
 	shape.drawRect(x1, y1, width1, height1, randomColor1, 'red');
 	shape.drawRect(x2, y2, width2, height2, randomColor2, 'blue');
 
-	let keyboardEvent = new KeyboardEvent();
+	const keyboardEvent = new KeyboardEvent();
 
-	let mouseEvent = new MouseEvent();
+	const mouseEvent = new MouseEvent();
 	mouseEvent.addSquare();
 	mouseEvent.addCircle();
 	mouseEvent.addFlag();
 
-	let buttonEvent = new ButtonEvent();
+	const buttonEvent = new ButtonEvent();
 	buttonEvent.clearButton();
 	// end to initial drawboard ------------------------------------------
 });

@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- <link rel="icon" href="favicon.ico"> -->
+
+    <link rel="icon" href="favicon.ico">
     <title>HTML5 canvas</title>
-    
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -21,25 +20,25 @@
         <div>Press WASD to move circle. Hold mouse to draw. Double click to add item.</div>
         <div id="slider"></div>
         <div>
-            Choose pencil color: 
+            Choose pencil color:
             <div id="colorPicker"></div>
             <canvas id="canvas2"></canvas>
         </div>
 
         <div>
-            Choose background color: 
+            Choose background color:
             <div id="bgColorPicker"></div>
             <canvas id="canvas3"></canvas>
         </div>
-        
-        
-        <input id="square" type="checkbox"> Add square
-        <input id="circle" type="checkbox"> Add circle
-        <input id="flag" type="checkbox"> Add flag
-        <input id="clear" type="button" value="Clear">
+
+        <h4>
+          <input id="square" type="checkbox"> <span class="label label-primary">Add square</span>
+          <input id="circle" type="checkbox"> <span class="label label-success">Add circle</span>
+          <input id="flag" type="checkbox"> <span class="label label-info">Add flag</span>
+          <button id="clear" class="btn btn-sm btn-danger" type="button">Clear</button>
+        </h4>
         <div id="mousePos"></div>
     </div>
-
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -47,4 +46,3 @@
     <script src="public/scripts/function.js"></script>
   </body>
 </html>
-
