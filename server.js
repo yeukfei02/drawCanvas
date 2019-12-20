@@ -8,10 +8,10 @@ app.set('port', (process.env.PORT || 3000));
 app.use('/bower_components', express.static(path.join(__dirname, '/app/bower_components')));
 app.use('/public', express.static(path.join(__dirname, '/app/public')));
 
-http.listen(app.get('port'), () => {
-    console.log('server is listening at port: ' + app.get('port'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/app/index.html'));
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/app/index.html'));
+http.listen(app.get('port'), () => {
+  console.log('server is listening at port: ' + app.get('port'));
 });
