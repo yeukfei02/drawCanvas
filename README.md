@@ -2,13 +2,13 @@
 
 HTML5 canvas
 
-### Requirement:
-- Install yarn
-- Install bower
+## Requirement:
+- install yarn
+- install bower
 
-### Testing and run:
+## Testing and run:
 
-#### Option 1
+### Option 1
 ```
 $ yarn
 ```
@@ -19,12 +19,12 @@ $ cd ../
 $ yarn start
 ```
 
-Open web in http://localhost:3000/
+open http://localhost:3000/
 
-#### Option 2
+### Option 2
 ```
 $ cd app
 $ bower install
 ```
 
-Open index.html in browser
+open index.html in browser
