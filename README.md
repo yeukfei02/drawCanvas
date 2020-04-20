@@ -28,3 +28,7 @@ $ bower install
 ```
 
 open index.html in browser
+
+## Contributing
+
+Please refer to [CONTRIBUTING.md](https://github.com/yeukfei02/drawCanvas/blob/master/CONTRIBUTING.md)
