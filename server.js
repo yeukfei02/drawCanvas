@@ -1,9 +1,8 @@
 const express = require('express');
-const app = express();
-const http = require('http').createServer(app);
 const path = require('path');
 
-app.set('port', (process.env.PORT || 3000));
+const app = express();
+const port = process.env.PORT || 3000;
 
 app.use('/bower_components', express.static(path.join(__dirname, '/app/bower_components')));
 app.use('/public', express.static(path.join(__dirname, '/app/public')));
@@ -12,6 +11,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/app/index.html'));
 });
 
-http.listen(app.get('port'), () => {
-  console.log('server is listening at port: ' + app.get('port'));
+app.listen(port, () => {
+  console.log(`server is listening at port ${port}`);
 });
