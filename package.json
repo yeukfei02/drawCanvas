@@ -1,15 +1,19 @@
 {
   "name": "drawCanvas",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "main": "server.js",
   "repository": "https://github.com/yeukfei02/drawCanvas.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemon": "^2.0.2"
+    "git-cz": "^4.7.1",
+    "nodemon": "^2.0.2",
+    "standard-version": "^9.0.0"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "commit": "npx git-cz",
+    "release": "standard-version"
   }
 }
