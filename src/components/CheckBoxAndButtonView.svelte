@@ -63,7 +63,7 @@
 </style>
 
 <div>
-    <div class="d-flex flex-row justify-content-center align-items-center my-3">
+    <div class="d-flex flex-row justify-content-center align-items-center my-4">
         <div class="mx-3">
             <input class="form-check-input" type="checkbox" value="" id="addSquare" checked={addSquareChecked} on:click={handleAddSquareChecked}>
             <label class="form-check-label" for="addSquare">
@@ -84,7 +84,9 @@
         </div>
     </div>
 
-    <div class="d-flex justify-content-center my-3">
+    <div class="d-flex justify-content-center my-4">
         <button type="button" class="btn btn-danger" on:click={handleClearButtonClick}>Clear</button>
     </div>
+
+    <div style="margin: 1em auto; visibility: hidden;">test</div>
 </div>
