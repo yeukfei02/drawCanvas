@@ -1,13 +1,13 @@
 <script lang="ts">
     import { addSquareCheckedStore, addCircleCheckedStore, addFlagCheckedStore } from '../store';
 
-    export let addSquareChecked;
-    export let addCircleChecked;
-    export let addFlagChecked;
+    export let addSquareChecked: any;
+    export let addCircleChecked: any;
+    export let addFlagChecked: any;
 
-    export let canvas;
+    export let canvas: any;
 
-    const handleAddSquareChecked = (e: any) => {
+    const handleAddSquareChecked = () => {
         if (!addSquareChecked) {
             addSquareCheckedStore.set(true);
             addCircleCheckedStore.set(false);
@@ -19,7 +19,7 @@
         }
     }
 
-    const handleAddCircleChecked = (e: any) => {
+    const handleAddCircleChecked = () => {
         if (!addCircleChecked) {
             addSquareCheckedStore.set(false);
             addCircleCheckedStore.set(true);
@@ -31,7 +31,7 @@
         }
     }
 
-    const handleAddFlagChecked = (e: any) => {
+    const handleAddFlagChecked = () => {
         if (!addFlagChecked) {
             addSquareCheckedStore.set(false);
             addCircleCheckedStore.set(false);

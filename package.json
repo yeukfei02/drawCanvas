@@ -23,8 +23,9 @@
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "build": "rollup -c",
     "dev": "rollup -c -w",
+    "production": "yarn run build && yarn run start",
+    "build": "rollup -c",
     "start": "sirv public",
     "commit": "git-cz",
     "release": "standard-version",

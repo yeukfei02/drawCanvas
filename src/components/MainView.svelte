@@ -6,15 +6,15 @@
     let mousePos = '';
     let sliderValue = 5;
 
-    let canvas;
+    let canvas: any;
 
-    let colorPicker;
-    let canvas2;
-    let canvas2ImageData;
+    let colorPicker: any;
+    let canvas2: any;
+    let canvas2ImageData: any;
 
-    let bgColocPicker;
-    let canvas3;
-    let canvas3ImageData;
+    let bgColocPicker: any;
+    let canvas3: any;
+    let canvas3ImageData: any;
 
     let lastMouse = {
         x: 0,
@@ -42,7 +42,7 @@
     })
 
     let circle = {
-        x: 90,
+        x: 200,
         y: 200,
         radius: 10,
         startPoint: 0,
@@ -191,7 +191,7 @@
     }
 
     const handleSliderChange = (e: any) => {
-        sliderValue = e.target.value;
+        sliderValue = parseInt(e.target.value, 10);
     }
 
     const handleCanvas2MouseMove = (e: any) => {
@@ -207,7 +207,7 @@
         console.log('canvas2ImageData = ', canvas2ImageData);
     }
 
-    const handleCanvas2Click = (e: any) => {
+    const handleCanvas2Click = () => {
         const red = canvas2ImageData[0];
         const green = canvas2ImageData[1];
         const blue = canvas2ImageData[2]
@@ -229,7 +229,7 @@
         console.log('canvas3ImageData = ', canvas3ImageData);
     }
 
-    const handleCanvas3Click = (e: any) => {
+    const handleCanvas3Click = () => {
         const red = canvas3ImageData[0];
         const green = canvas3ImageData[1];
         const blue = canvas3ImageData[2];
@@ -419,7 +419,7 @@
         
         <div class="my-3">Press WASD to move circle. Hold mouse to draw. Double click to add item.</div>
 
-        <input type="range" class="form-range slider my-2" on:change={handleSliderChange}>
+        <input type="range" class="form-range slider my-2" min="1" on:change={handleSliderChange}>
 
         <div class="my-2">
             <div>Choose pencil color:</div>
