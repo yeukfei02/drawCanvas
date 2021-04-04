@@ -2,16 +2,16 @@
 
 HTML5 canvas
 
-url: https://draw-canvas-three.vercel.app/
+url: <https://draw-canvas-three.vercel.app/>
 
-## Requirement:
+## Requirement
 
 - install yarn
 - install node (v12+)
 
-## Testing and run:
+## Testing and run
 
-```
+```zsh
 $ yarn
 
 // development
